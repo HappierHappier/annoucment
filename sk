@@ -1,0 +1,13 @@
+command /announcement <text>:
+    description: Sends an announcement in chat and as a title.
+    permission: announcement.use
+    permission message: &cYou do not have permission to use this command.
+
+    trigger:
+        # Broadcast message in chat
+        broadcast "&b&lAnnouncement: %arg-1%"
+
+        # Send title to all players
+        loop all players:
+            send title "&b&lAnnouncement" to loop-player
+            send subtitle "%arg-1%" to loop-player
